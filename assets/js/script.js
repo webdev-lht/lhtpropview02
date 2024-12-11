@@ -4,7 +4,9 @@ document.getElementById('showResultsBtn').addEventListener('click', renderResult
 
 async function renderResults() {
     const tableBody = document.getElementById('results');
+    const resultsCounter = document.getElementById('results-counter');
     tableBody.innerHTML = '';
+    let count = 0;
 
     try {
         //Fetch MLS data from Firebase
@@ -27,11 +29,14 @@ async function renderResults() {
                 //Calculate Price per Acre
                 const pricePerAcre = property.property_Acres > 0 ? (parseFloat(property.property_List_Price) / parseFloat(property.property_Acres)).toFixed(2) : 'N/A'; 
                 
-                //Filtering Logic (>20 Acres; <$20,000/Acre)
-                if (acres >= 20 && pricePerAcre < 20000) {
+                //Filtering Logic (>20 Acres; <$30,000/Acre)
+                if (acres >= 20 && pricePerAcre < 30000) {
+                    //increment counter
+                    count++;
                     const row = document.createElement('tr');
                     //Adding data for each property
                     row.innerHTML = `
+                        <td><input type="checkbox" class="property-checkbox"></td>
                         <td>${mls}</td>
                         <td>${acres}</td>
                         <td>${listPrice}</td>
@@ -41,6 +46,17 @@ async function renderResults() {
                         <td>${address}</td>
                         <td>${schoolDistrict}</td>
                     `;
+
+                    //Event listener to the checkbox
+                    const checkbox = row.querySelector('.property-checkbox');
+                    checkbox.addEventListener('change', (e) => {
+                        if (e.target.checked) {
+                            row.style.textDecoration = 'line-through';
+                        } else {
+                            row.style.textDecoration = 'none';
+                        }
+                    });
+                    
                     //Append row to the table body
                     tableBody.appendChild(row);
                 }
@@ -48,6 +64,9 @@ async function renderResults() {
         } else {
             console.log('No data to display.')
         }
+
+        //update results counter
+        resultsCounter.textContent = `Results: ${count}`;
     } catch (error) {
         console.error('Error rendering results:', error)
     }
