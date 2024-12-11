@@ -219,3 +219,12 @@ input[type="number"], .form-select {
         margin-bottom: 8px;
     }
 }
+
+/* Results Counter */
+#results-counter {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: inline-block;
+}
