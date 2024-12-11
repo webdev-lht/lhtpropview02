@@ -82,6 +82,58 @@ body {
     color: #333;
 }
 
+#results-list th,
+#results-list td {
+    width: auto;
+}
+
+    /* Individual column widths*/
+
+    #results-list th:nth-child(1),
+    #results-list td:nth-child(1) {
+        width: 5%; /* Checkboxes column*/
+    }
+    
+    #results-list th:nth-child(2),
+    #results-list td:nth-child(2) {
+        width: 8%; /* MLS # column*/
+    }
+
+    #results-list th:nth-child(3),
+    #results-list td:nth-child(3) {
+        width: 8%; /* Acres column*/
+    }
+
+    #results-list th:nth-child(4),
+    #results-list td:nth-child(4) {
+        width: 12%; /* List Price column*/
+    }
+
+    #results-list th:nth-child(5),
+    #results-list td:nth-child(5) {
+        width: 12%; /* Price per Acre column*/
+    }
+
+    #results-list th:nth-child(6),
+    #results-list td:nth-child(6) {
+        width: 5%; /* DOM column*/
+    }
+
+    #results-list th:nth-child(7),
+    #results-list td:nth-child(7) {
+        width: 12%; /* County column*/
+    }
+
+    #results-list th:nth-child(8),
+    #results-list td:nth-child(8) {
+        width: 30%; /* Address column*/
+    }
+
+    #results-list th:nth-child(9),
+    #results-list td:nth-child(9) {
+        width: 10%; /* School District column*/
+    }
+
 #results-list p {
     margin: 0;
     padding: 5px; 
@@ -225,6 +277,19 @@ input[type="number"], .form-select {
     font-size: 18px;
     font-weight: bold;
     color: #333;
+    margin-top: 20px;
     margin-bottom: 10px;
     display: inline-block;
+    position: relative;
+}
+
+#checkbox-reminder {
+    position: absolute;
+}
+
+#reminder-text {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+    font-style: italic;
 }
