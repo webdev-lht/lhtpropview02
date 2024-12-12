@@ -2,6 +2,16 @@ import { fetchMLSData } from "../js/app.js";
 
 document.getElementById('showResultsBtn').addEventListener('click', renderResults);
 
+
+//Utility function to format numbers as currency
+function formatMoney(value) {
+    return new Intl.NumberFormat('en-US', {
+        style: "currency",
+        currency: 'USD',
+        minimumFractionDigits:2, 
+    }).format(value);
+}
+
 async function renderResults() {
     const tableBody = document.getElementById('results');
     const resultsCounter = document.getElementById('results-counter');
@@ -39,8 +49,8 @@ async function renderResults() {
                         <td><input type="checkbox" class="property-checkbox"></td>
                         <td>${mls}</td>
                         <td>${acres}</td>
-                        <td>${listPrice}</td>
-                        <td>${pricePerAcre}</td>
+                        <td>${formatMoney(listPrice)}</td>
+                        <td>${pricePerAcre !== 'NA' ? formatMoney(pricePerAcre) : 'N/A'} </td>
                         <td>${dom}</td>
                         <td>${county}</td>
                         <td>${address}</td>
