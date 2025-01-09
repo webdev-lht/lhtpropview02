@@ -4,13 +4,13 @@ import { getDatabase, ref, get } from 'https://www.gstatic.com/firebasejs/11.0.2
 
 // Firebase config and initialization
 const firebaseConfig = {
-    apiKey: "AIzaSyBgCsmllgCTvI0xBNTbdYml_iEOFezpzNI",
-    authDomain: "lhtpropview2.firebaseapp.com",
-    databaseURL: "https://lhtpropview2-default-rtdb.firebaseio.com",
-    projectId: "lhtpropview2",
-    storageBucket: "lhtpropview2.firebasestorage.app",
-    messagingSenderId: "1016618063317",
-    appId: "1:1016618063317:web:3bb03b28a98f129d35195c"
+  apiKey: "AIzaSyBgCsmllgCTvI0xBNTbdYml_iEOFezpzNI",
+  authDomain: "lhtpropview2.firebaseapp.com",
+  databaseURL: "https://lhtpropview2-default-rtdb.firebaseio.com",
+  projectId: "lhtpropview2",
+  storageBucket: "lhtpropview2.firebasestorage.app",
+  messagingSenderId: "1016618063317",
+  appId: "1:1016618063317:web:3bb03b28a98f129d35195c"
 };
 
 // Initialize Firebase app
